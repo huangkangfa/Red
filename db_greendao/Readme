@@ -1,0 +1,53 @@
+// In your root build.gradle file:
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral() // add repository
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.1'
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2' // add plugin
+    }
+}
+
+// In your app projects build.gradle file:
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao' // apply plugin
+
+//greendao配置
+greendao {
+    //版本号，升级时可配置
+    schemaVersion 1
+    daoPackage 'com.example.greendao.db.gen'
+    targetGenDir 'src/main/java'
+}
+
+dependencies {
+    compile 'org.greenrobot:greendao:3.2.2' // add library
+}
+
+
+
+
+
+bean 存放实体类
+dao  存放对实体类具体实现方法类
+SqlDaoManager  dao类管理者类
+SqlDbManager  数据库管理类
+
+
+注：
+SqlDbManager.getInstance().init(this);  在application需要初始化
+
+实体类直接写在bean文件夹中
+
+特殊的操作写在新建的SqlDao中，并放在dao文件夹中
+
+在SqlDaoManager中写好对应的dao获取方法
+
+SqlDbManager.getInstance().close();  关闭时记得关闭数据库以及服务
+
+
+
+
+

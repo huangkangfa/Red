@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Red.iml" filepath="$PROJECT_DIR$/Red.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/coffee/coffee.iml" filepath="$PROJECT_DIR$/coffee/coffee.iml" />
+      <module fileurl="file://$PROJECT_DIR$/colorarcprogressbar/colorarcprogressbar.iml" filepath="$PROJECT_DIR$/colorarcprogressbar/colorarcprogressbar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/db_greendao/db_greendao.iml" filepath="$PROJECT_DIR$/db_greendao/db_greendao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/menudrawer/menudrawer.iml" filepath="$PROJECT_DIR$/menudrawer/menudrawer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ptr-lib/ptr-lib.iml" filepath="$PROJECT_DIR$/ptr-lib/ptr-lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wheelView/wheelView.iml" filepath="$PROJECT_DIR$/wheelView/wheelView.iml" />
+    </modules>
+  </component>
+</project>

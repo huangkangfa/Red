@@ -1,0 +1,1 @@
+include ':app', ':coffee', ':ptr-lib', ':db_greendao', ':menudrawer', ':wheelView', ':colorarcprogressbar'
