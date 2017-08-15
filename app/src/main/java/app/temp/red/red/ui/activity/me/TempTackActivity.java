@@ -1,4 +1,4 @@
-package app.temp.red.red.ui.activity;
+package app.temp.red.red.ui.activity.me;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

@@ -6,23 +6,23 @@ import com.hkf.coffee.ui.ActivityManager;
 import com.hkf.coffee.ui.activity.BaseActivity;
 
 import app.temp.red.red.R;
-import app.temp.red.red.ui.activity.CreateGroupActivity;
-import app.temp.red.red.ui.activity.DeviceListActivity;
-import app.temp.red.red.ui.activity.FeedbackActivity;
-import app.temp.red.red.ui.activity.HelpActivity;
+import app.temp.red.red.ui.activity.groups.CreateGroupActivity;
+import app.temp.red.red.ui.activity.others.DeviceListActivity;
+import app.temp.red.red.ui.activity.me.FeedbackActivity;
+import app.temp.red.red.ui.activity.me.HelpActivity;
 import app.temp.red.red.ui.activity.HomeActivity;
 import app.temp.red.red.ui.activity.IntroActivity;
-import app.temp.red.red.ui.activity.LoginActivity;
-import app.temp.red.red.ui.activity.ManualModeActivity;
-import app.temp.red.red.ui.activity.MyCenterActivity;
-import app.temp.red.red.ui.activity.MyGroupDetailActivity;
-import app.temp.red.red.ui.activity.MyGroupListActivity;
-import app.temp.red.red.ui.activity.RegisterActivity;
-import app.temp.red.red.ui.activity.ResetPasswordActivity;
-import app.temp.red.red.ui.activity.SeasonSetActivity;
-import app.temp.red.red.ui.activity.TempTackActivity;
-import app.temp.red.red.ui.activity.TransitActivity;
-import app.temp.red.red.ui.activity.WeekProgramActivity;
+import app.temp.red.red.ui.activity.login.LoginActivity;
+import app.temp.red.red.ui.activity.others.ManualModeActivity;
+import app.temp.red.red.ui.activity.me.MyCenterActivity;
+import app.temp.red.red.ui.activity.groups.MyGroupDetailActivity;
+import app.temp.red.red.ui.activity.groups.MyGroupListActivity;
+import app.temp.red.red.ui.activity.login.RegisterActivity;
+import app.temp.red.red.ui.activity.me.ResetPasswordActivity;
+import app.temp.red.red.ui.activity.me.SeasonSetActivity;
+import app.temp.red.red.ui.activity.me.TempTackActivity;
+import app.temp.red.red.ui.activity.others.TransitActivity;
+import app.temp.red.red.ui.activity.me.WeekProgramActivity;
 import app.temp.red.red.ui.activity.WelcomeActivity;
 
 /**

@@ -25,19 +25,19 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.LoginActivity"
+            android:name=".ui.activity.login.LoginActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.RegisterActivity"
+            android:name=".ui.activity.login.RegisterActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.ResetPasswordActivity"
+            android:name=".ui.activity.me.ResetPasswordActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.TransitActivity"
+            android:name=".ui.activity.others.TransitActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
@@ -45,51 +45,51 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.DeviceListActivity"
+            android:name=".ui.activity.others.DeviceListActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.ManualModeActivity"
+            android:name=".ui.activity.others.ManualModeActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.TempTackActivity"
+            android:name=".ui.activity.me.TempTackActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.WeekProgramActivity"
+            android:name=".ui.activity.me.WeekProgramActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.SeasonSetActivity"
+            android:name=".ui.activity.me.SeasonSetActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.MyGroupListActivity"
+            android:name=".ui.activity.groups.MyGroupListActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.CreateGroupActivity"
+            android:name=".ui.activity.groups.CreateGroupActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.MyGroupDetailActivity"
+            android:name=".ui.activity.groups.MyGroupDetailActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.MyCenterActivity"
+            android:name=".ui.activity.me.MyCenterActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.HelpActivity"
+            android:name=".ui.activity.me.HelpActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.FeedbackActivity"
+            android:name=".ui.activity.me.FeedbackActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.AboutActivity"
+            android:name=".ui.activity.me.AboutActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
 
