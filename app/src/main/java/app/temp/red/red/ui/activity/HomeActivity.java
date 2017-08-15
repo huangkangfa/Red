@@ -23,6 +23,7 @@ import java.util.List;
 
 import app.temp.red.red.R;
 import app.temp.red.red.global.TempData;
+import app.temp.red.red.ui.GotoActivityManager;
 import app.temp.red.red.ui.dialog.ChooseDialog;
 import app.temp.red.red.ui.fragment.GatewayFragment;
 import app.temp.red.red.ui.fragment.MineFragment;
@@ -225,6 +226,7 @@ public class HomeActivity extends BaseFragmentActivity implements ChooseDialog.C
                     case 2:
                         break;
                 }
+                GotoActivityManager.goManualModeActivity(mActivity);
             break;
 
             case "设备锁":

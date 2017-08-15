@@ -19,37 +19,29 @@
             android:src="@mipmap/ic_launcher" />
 
         <TextView
-            android:id="@+id/head_txt_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="5dp"
-            android:layout_toRightOf="@+id/head_img_persion"
-            android:maxLength="6"
-            android:text="群组昵称测试"
+            android:layout_centerInParent="true"
+            android:text="集中温控"
             android:textColor="@color/white"
             android:textSize="18dp" />
 
-        <EditText
-            android:id="@+id/head_txt_title_et"
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/head_txt_title"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="5dp"
             android:layout_toRightOf="@+id/head_img_persion"
-            android:padding="0dp"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:singleLine="true"
+            android:focusableInTouchMode="true"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            android:text="群组昵称测试"
             android:textColor="@color/white"
-            android:textSize="15dp"
-            android:visibility="gone" />
-
-        <ImageView
-            android:id="@+id/head_img_et"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
-            android:layout_toLeftOf="@+id/head_img_others"
-            android:src="@mipmap/ic_launcher" />
+            android:textSize="18dp" />
 
         <TextView
             android:id="@+id/head_img_others"
@@ -57,8 +49,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:textColor="@color/white"
-            android:text="更多" />
+            android:text="更多"
+            android:textColor="@color/white" />
     </RelativeLayout>
 
     <View
@@ -70,8 +62,8 @@
 
     <GridView
         android:id="@+id/gv"
-        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
         android:numColumns="3" />
 </LinearLayout>

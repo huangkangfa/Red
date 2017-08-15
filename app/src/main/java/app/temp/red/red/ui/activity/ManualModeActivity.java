@@ -2,19 +2,64 @@ package app.temp.red.red.ui.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.hkf.coffee.ui.activity.BaseActivity;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import app.temp.red.red.R;
+import app.temp.red.red.ui.view.CircleStage;
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 /**
  * 手动模式详情界面   群组、场景、网关、设备手动模式详情复用
  * Created by huangkangfa on 2017/8/9.
  */
-public class ManualModeActivity extends BaseActivity{
+public class ManualModeActivity extends BaseActivity {
+    @Bind(R.id.head_img_back)
+    ImageView headImgBack;
+    @Bind(R.id.head_txt_title)
+    TextView headTxtTitle;
+    @Bind(R.id.head_txt_others)
+    TextView headTxtOthers;
+    @Bind(R.id.cs)
+    CircleStage cs;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manual_mode);
+        ButterKnife.bind(this);
+        init();
+    }
+
+    private void init() {
+        //顶部栏设置
+        headTxtOthers.setVisibility(View.VISIBLE);
+        headTxtOthers.setText("更多");
+        headTxtTitle.setText("手动模式");
+
+        Map<Integer, String> map = new HashMap<>();
+        map.put(3, "#ff0000");
+        map.put(4, "#ff0000");
+        map.put(5, "#00ff00");
+        map.put(6, "#00ff00");
+        map.put(7, "#00ff00");
+        map.put(8, "#00ff00");
+        map.put(9, "#0000ff");
+        map.put(10, "#0000ff");
+        map.put(11, "#0000ff");
+        cs.setColors(map);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ButterKnife.unbind(this);
     }
 }

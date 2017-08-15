@@ -19,6 +19,7 @@ public class LoginActivity extends BaseFragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         GotoActivityManager.goHomeActivity(mActivity);
+
     }
 
 }

@@ -21,4 +21,8 @@ public class AllURL {
      * 域名
      */
     public static final String HOST = "http://api.timelysys.com/timelysys/";
+    /**
+     * 用户登录
+     */
+    public static final String LOGIN = HOST+"登录请求地址";
 }

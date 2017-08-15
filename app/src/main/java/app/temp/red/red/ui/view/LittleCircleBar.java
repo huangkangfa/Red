@@ -31,7 +31,9 @@ public class LittleCircleBar extends View {
     int radius;  //半径
     RectF oval;
 
-    private int angle = 0;  //滑动的角度
+    private int angle = 3;  //滑动的角度
+    private int angleMin = 3;  //滑动的角度
+    private int angleMax = 87;  //滑动的角度
 
     public LittleCircleBar(Context context) {
         super(context);
@@ -77,7 +79,7 @@ public class LittleCircleBar extends View {
         width = View.MeasureSpec.getSize(widthMeasureSpec);
         setMeasuredDimension(width, height);  //这里面是原始的大小，需要重新计算可以修改本行
         //dosomething
-        r = width / 23;
+        r = width / 16;
         minX=(float) (width * (1 - getCosWithAngle(45))) / 2;
         maxX=(float) (width * (1 + getCosWithAngle(45))) / 2;
     }
@@ -89,8 +91,10 @@ public class LittleCircleBar extends View {
         radius = centre; //圆环的外半径
         oval = new RectF(0, (float) (-0.9 * centre * (1 + getCosWithAngle(45))), 2 * centre, (float) (centre * (1 - getCosWithAngle(45))));  //用于定义的圆弧的形状和大小的界限
         canvas.drawArc(oval, 45, 90, false, paint0);  //画圆弧
-        canvas.drawLine(width / 9, height / 4, minX, height / 15, paint1); //左
-        canvas.drawLine(width - width / 9, height / 4, maxX, height / 15, paint0); //右
+        canvas.drawLine(width / 10, height / 4, minX, height / 15, paint1); //左
+        canvas.drawLine(width - width / 10, height / 4, maxX, height / 15, paint0); //右
+
+
         paint1.setStrokeWidth(paintWidth + 2);
         canvas.drawArc(oval, 135, -angle, false, paint1);  //根据进度画圆弧
 
@@ -129,10 +133,10 @@ public class LittleCircleBar extends View {
     private float getPercentageHeight(int num) {
         double temp = centre * getCosWithAngle(45);
 
-        if (num <= 3) {
-            num = 3;
-        } else if (num >= 87) {
-            num = 87;
+        if (num <= angleMin) {
+            num = angleMin;
+        } else if (num >= angleMax) {
+            num = angleMax;
         }
 
         if (num >= 0 && num <= 45) {
@@ -182,10 +186,10 @@ public class LittleCircleBar extends View {
      * @param num
      */
     private void setAngle(int num) {
-        if (num <=3) {
-            angle = 3;
-        } else if (num >= 87) {
-            angle = 87;
+        if (num <=angleMin) {
+            angle = angleMin;
+        } else if (num >= angleMax) {
+            angle = angleMax;
         } else {
             angle = num;
         }
