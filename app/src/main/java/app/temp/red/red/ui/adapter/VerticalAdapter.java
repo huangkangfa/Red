@@ -55,6 +55,8 @@ public class VerticalAdapter extends BaseAdapter{
             holder.txt_t=view.findViewById(R.id.item_txt_t);
             holder.ll_t=view.findViewById(R.id.item_ll_t);
             holder.add=view.findViewById(R.id.tv_add);
+            holder.btn_open=view.findViewById(R.id.btn_open);
+            holder.btn_close=view.findViewById(R.id.btn_close);
             view.setTag(holder);
         }else{
             holder= (ViewHolder) view.getTag();
@@ -63,8 +65,9 @@ public class VerticalAdapter extends BaseAdapter{
         BitmapManager.displayCircular(context,holder.img,R.mipmap.ic_launcher);
         if (i==data.size()-1){
             holder.img.setVisibility(View.GONE);
-            holder.ll_t.setVisibility(View.GONE);
+            holder.txt_t.setVisibility(View.GONE);
             holder.txt_d.setVisibility(View.GONE);
+            holder.ll_t.setVisibility(View.GONE);
             holder.add.setVisibility(View.VISIBLE);
             holder.add.setText(data.get(i));
         }
@@ -78,5 +81,7 @@ public class VerticalAdapter extends BaseAdapter{
         private TextView txt_t;
         private TextView txt_d;
         private TextView add;
+        private ImageView btn_open;
+        private ImageView btn_close;
     }
 }

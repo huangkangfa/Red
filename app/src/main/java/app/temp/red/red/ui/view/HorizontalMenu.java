@@ -58,7 +58,7 @@ public class HorizontalMenu extends LinearLayout {
             RadioButton rb = (RadioButton) LayoutInflater.from(getContext()).inflate(R.layout.item_horzontal_menu, null);
             rb.setText(nameList.get(i));
             rb.setGravity(Gravity.CENTER);
-            RadioGroup.LayoutParams layoutParams = new RadioGroup.LayoutParams(DensityUtil.dp2px(60), RadioGroup
+            RadioGroup.LayoutParams layoutParams = new RadioGroup.LayoutParams(DensityUtil.dp2px(50), RadioGroup
                     .LayoutParams.MATCH_PARENT);
             layoutParams.setMargins(DensityUtil.dp2px(5),0,DensityUtil.dp2px(5),0);
             rb.setMinimumWidth((int) (screenWidth / count));

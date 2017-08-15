@@ -30,9 +30,10 @@
             android:id="@+id/head_txt_title"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_marginLeft="5dp"
+            android:layout_alignBottom="@+id/head_img_persion"
             android:layout_toRightOf="@+id/head_img_persion"
+            android:layout_marginBottom="3dp"
             android:ellipsize="marquee"
             android:focusable="true"
             android:singleLine="true"
@@ -41,7 +42,7 @@
             android:scrollHorizontally="true"
             android:text="群组昵称测试"
             android:textColor="@color/white"
-            android:textSize="18dp" />
+            android:textSize="15dp" />
 
         <TextView
             android:id="@+id/head_img_others"
@@ -60,10 +61,15 @@
         android:layout_below="@+id/head_rl_head"
         android:background="@color/line_gray" />
 
-    <GridView
-        android:id="@+id/gv"
+    <in.srain.cube.views.ptr2.PtrClassicFrameLayout
+        android:id="@+id/ptr_Layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="5dp"
-        android:numColumns="3" />
+        android:layout_height="match_parent">
+        <GridView
+            android:id="@+id/gv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:numColumns="3" />
+    </in.srain.cube.views.ptr2.PtrClassicFrameLayout>
 </LinearLayout>

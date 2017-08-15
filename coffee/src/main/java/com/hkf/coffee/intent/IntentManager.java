@@ -268,6 +268,7 @@ public class IntentManager {
         //发送chooser
         ((Activity) context).startActivityForResult(chooser, requstCode);
     }
+
     //onActivity反馈获取图片Uri
     public static Uri onActivityResult_SysBitmapIntent(Context context,Intent data) {
         Uri uri=null;

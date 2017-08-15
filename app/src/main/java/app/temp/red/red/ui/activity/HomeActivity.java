@@ -209,24 +209,23 @@ public class HomeActivity extends BaseFragmentActivity implements ChooseDialog.C
             case "导入模板":
                 switch (position){
                     case 0:
+                        GotoActivityManager.goFormworkActivity1(mActivity,"场景");
                         break;
                     case 1:
-                        break;
-                    case 2:
+                        GotoActivityManager.goFormworkActivity1(mActivity,"网关");
                         break;
                 }
-            break;
+                break;
 
             case "手动模式":
                 switch (position){
                     case 0:
+                        GotoActivityManager.goManualModeActivity(mActivity,"场景");
                         break;
                     case 1:
-                        break;
-                    case 2:
+                        GotoActivityManager.goManualModeActivity(mActivity,"网关");
                         break;
                 }
-                GotoActivityManager.goManualModeActivity(mActivity);
             break;
 
             case "设备锁":
@@ -234,8 +233,6 @@ public class HomeActivity extends BaseFragmentActivity implements ChooseDialog.C
                     case 0:
                         break;
                     case 1:
-                        break;
-                    case 2:
                         break;
                 }
             break;
@@ -246,18 +243,16 @@ public class HomeActivity extends BaseFragmentActivity implements ChooseDialog.C
                         break;
                     case 1:
                         break;
-                    case 2:
-                        break;
                 }
             break;
 
-            case "重命名":
+            case "详情":
                 switch (position){
                     case 0:
+                        GotoActivityManager.goSceneDetailActivity(mActivity,"场景");
                         break;
                     case 1:
-                        break;
-                    case 2:
+                        GotoActivityManager.goSceneDetailActivity(mActivity,"网关");
                         break;
                 }
             break;
@@ -267,8 +262,6 @@ public class HomeActivity extends BaseFragmentActivity implements ChooseDialog.C
                     case 0:
                         break;
                     case 1:
-                        break;
-                    case 2:
                         break;
                 }
             break;

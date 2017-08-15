@@ -9,9 +9,9 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.hkf.coffee.others.ToastUtil;
 import com.hkf.coffee.ui.fragment.BaseFragment;
 
 import java.util.ArrayList;
@@ -24,6 +24,9 @@ import app.temp.red.red.ui.adapter.VerticalAdapter;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import in.srain.cube.views.ptr2.PtrClassicFrameLayout;
+import in.srain.cube.views.ptr2.PtrDefaultHandler2;
+import in.srain.cube.views.ptr2.PtrFrameLayout;
 
 /**
  * 首页-场景模块
@@ -39,9 +42,11 @@ public class SceneFragment extends BaseFragment {
     TextView headTxtTitle;  //群组昵称
     @Bind(R.id.gv)
     GridView gv;
+    @Bind(R.id.ptr_Layout)
+    PtrClassicFrameLayout pullToRefreshLayout;
 
     VerticalAdapter adapter_vertical;
-    SeekBar s;
+//    long lastRefrshTime;  //上一次刷新时间
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -58,24 +63,51 @@ public class SceneFragment extends BaseFragment {
         }
 
         data2.add("添加");
-        adapter_vertical=new VerticalAdapter(getContext(),data2);
+        adapter_vertical = new VerticalAdapter(mActivity, data2);
         gv.setAdapter(adapter_vertical);
         gv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                if(i<data2.size()-1){
-                    Intent it=new Intent(HomeActivity.ACTION_NAME);
-                    it.putExtra("类型","选择弹框");
+                if (i < data2.size() - 1) {
+                    Intent it = new Intent(HomeActivity.ACTION_NAME);
+                    it.putExtra("类型", "选择弹框");
                     mActivity.sendBroadcast(it);
                 }
                 return true;
             }
         });
-        gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+        pullToRefreshLayout.setMode(PtrFrameLayout.Mode.BOTH);
+        pullToRefreshLayout.disableWhenHorizontalMove(true);
+        pullToRefreshLayout.setLastUpdateTimeRelateObject(this);
+        pullToRefreshLayout.setPtrHandler(new PtrDefaultHandler2() {
+
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                if(i<data2.size()-1)
-                    GotoActivityManager.goWeekProgramActivity(mActivity);
+            public void onLoadMoreBegin(PtrFrameLayout frame) {
+                ToastUtil.showShort(mActivity, "加载更多");
+                pullToRefreshLayout.refreshComplete();
+//                pullToRefreshLayout.setMode(PtrFrameLayout.Mode.REFRESH);
+            }
+
+            @Override
+            public void onRefreshBegin(PtrFrameLayout frame) {
+                ToastUtil.showShort(mActivity, "下拉刷新");
+//                long time = System.currentTimeMillis();
+//                if (time - lastRefrshTime < 1 * 1000) {
+                    pullToRefreshLayout.refreshComplete();
+//                    return;
+//                }
+//                lastRefrshTime = time;
+            }
+
+            @Override
+            public boolean checkCanDoLoadMore(PtrFrameLayout frame, View content, View footer) {
+                return super.checkCanDoLoadMore(frame, gv, footer);
+            }
+
+            @Override
+            public boolean checkCanDoRefresh(PtrFrameLayout frame, View content, View header) {
+                return super.checkCanDoRefresh(frame, gv, header);
             }
         });
     }
@@ -91,7 +123,7 @@ public class SceneFragment extends BaseFragment {
         switch (v.getId()) {
             case R.id.head_img_others:
                 //更多
-
+                GotoActivityManager.goMyGroupListActivity(mActivity);
                 break;
             case R.id.head_img_persion:
                 //头像

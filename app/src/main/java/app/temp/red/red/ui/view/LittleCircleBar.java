@@ -167,15 +167,29 @@ public class LittleCircleBar extends View {
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-//                break;   //为了让down执行move的操作
+                if(event.getX()>=minX&&event.getX()<=maxX){
+                    currentPercentage= (int) ((event.getX()-minX)*100/(Math.sqrt(2)*centre));
+                    setPercentage(currentPercentage);
+                    if (listener!=null) {
+                        listener.onChangeWithStart(currentPercentage);
+                    }
+                }
+                break;
             case MotionEvent.ACTION_MOVE:
                 if(event.getX()>=minX&&event.getX()<=maxX){
                     currentPercentage= (int) ((event.getX()-minX)*100/(Math.sqrt(2)*centre));
                     setPercentage(currentPercentage);
+                    if (listener!=null) {
+                        listener.onChange(currentPercentage);
+                    }
                 }
                 break;
             case MotionEvent.ACTION_UP:
-
+                if(event.getX()>=minX&&event.getX()<=maxX){
+                    if (listener!=null) {
+                        listener.onChangeWithEnd(currentPercentage);
+                    }
+                }
                 break;
         }
         return true;
@@ -210,5 +224,15 @@ public class LittleCircleBar extends View {
      */
     public int getPercentage(){
         return currentPercentage;
+    }
+
+    public interface OnCircleBarListener{
+        void onChangeWithStart(int p);
+        void onChange(int p);
+        void onChangeWithEnd(int p);
+    }
+    OnCircleBarListener listener=null;
+    public void setOnCircleBarListener(OnCircleBarListener listener){
+        this.listener=listener;
     }
 }

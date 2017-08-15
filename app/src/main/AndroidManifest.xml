@@ -45,7 +45,7 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.others.DeviceListActivity"
+            android:name=".ui.activity.others.ShowListActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
@@ -53,11 +53,11 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.me.TempTackActivity"
+            android:name=".ui.activity.formworks.TempTackActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.me.WeekProgramActivity"
+            android:name=".ui.activity.formworks.WeekProgramActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
@@ -90,6 +90,14 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.me.AboutActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.others.DetailActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.formworks.FormworkTypeActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
 

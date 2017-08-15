@@ -16,7 +16,6 @@
         <attr name="total_engle" format="integer"/>
         <attr name="current_value" format="float"/>
         <attr name="max_value" format="float"/>
-
     </declare-styleable>
     
 </resources>
