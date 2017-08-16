@@ -2,6 +2,7 @@ package app.temp.red.red.ui.activity.me;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,6 +12,7 @@ import app.temp.red.red.R;
 import app.temp.red.red.ui.GotoActivityManager;
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * 采暖季节设置
@@ -41,5 +43,16 @@ public class SeasonSetActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         ButterKnife.unbind(this);
+    }
+
+    @OnClick({R.id.head_img_back, R.id.head_txt_others})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.head_img_back:
+                finish();
+                break;
+            case R.id.head_txt_others:
+                break;
+        }
     }
 }

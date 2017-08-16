@@ -69,6 +69,7 @@ public class DetailActivity extends BaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.head_img_back:
+                finish();
                 break;
             case R.id.head_txt_others:
                 if (isCanEdit) {

@@ -2,15 +2,16 @@ package app.temp.red.red.ui.activity.me;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.hkf.coffee.ui.activity.BaseActivity;
 
 import app.temp.red.red.R;
-import app.temp.red.red.ui.GotoActivityManager;
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * 帮助界面
@@ -21,25 +22,23 @@ public class HelpActivity extends BaseActivity {
     ImageView headImgBack;
     @Bind(R.id.head_txt_title)
     TextView headTxtTitle;
-    @Bind(R.id.head_txt_others)
-    TextView headTxtOthers;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
         ButterKnife.bind(this);
-        init();
+        headImgBack.setVisibility(View.VISIBLE);
+        headTxtTitle.setText("帮助");
     }
 
-    private void init() {
-        //顶部栏标题设置
-        headTxtTitle.setText(getIntent().getStringExtra(GotoActivityManager.HEAD_TITLE));
-    }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        ButterKnife.unbind(this);
+    @OnClick({R.id.head_img_back})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.head_img_back:
+                finish();
+                break;
+        }
     }
 }

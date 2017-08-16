@@ -13,6 +13,7 @@ import app.temp.red.red.R;
 import app.temp.red.red.ui.GotoActivityManager;
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * 创建群组界面
@@ -41,18 +42,22 @@ public class CreateGroupActivity extends BaseActivity {
         headTxtTitle.setText(getIntent().getStringExtra(GotoActivityManager.HEAD_TITLE));
         headTxtOthers.setVisibility(View.VISIBLE);
         headTxtOthers.setText("确定");
-
-        headTxtOthers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         ButterKnife.unbind(this);
+    }
+
+    @OnClick({R.id.head_img_back, R.id.head_txt_others})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.head_img_back:
+                finish();
+                break;
+            case R.id.head_txt_others:
+                break;
+        }
     }
 }

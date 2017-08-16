@@ -2,6 +2,52 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-    <include layout="@layout/item_activity_head"/>
+    android:orientation="vertical"
+    android:background="@color/gray">
+    <include
+        android:id="@+id/include_head"
+        layout="@layout/item_activity_head"/>
+    <TextView
+        android:layout_marginTop="28dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="问题描述"
+        android:textColor="@color/white"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:background="@color/line_color">
+        <EditText
+            android:id="@+id/et_feedback"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:padding="5dp"
+            android:background="@null"
+            android:hint="给我们一些反馈，让我们更加努力"
+            android:gravity="top|left"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:maxLength="150"/>
+        <TextView
+            android:id="@+id/txt_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/white"
+            android:text="150"
+            android:textSize="20sp"/>
+    </RelativeLayout>
+    <Button
+        android:id="@+id/btn_feedback"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:text="提交"
+        android:textColor="@color/white"/>
 </LinearLayout>

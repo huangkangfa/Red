@@ -2,6 +2,7 @@ package app.temp.red.red.ui.activity.formworks;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,6 +16,7 @@ import app.temp.red.red.ui.GotoActivityManager;
 import app.temp.red.red.ui.view.HorizontalMenu;
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * 周编程详情界面   周编程模板设置与设备周编程详情复用
@@ -59,5 +61,16 @@ public class WeekProgramActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         ButterKnife.unbind(this);
+    }
+
+    @OnClick({R.id.head_img_back, R.id.head_txt_others})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.head_img_back:
+                finish();
+                break;
+            case R.id.head_txt_others:
+                break;
+        }
     }
 }

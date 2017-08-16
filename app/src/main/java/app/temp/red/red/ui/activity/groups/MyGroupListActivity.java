@@ -20,6 +20,7 @@ import app.temp.red.red.ui.adapter.VerticalAdapter;
 import app.temp.red.red.ui.dialog.ChooseDialog;
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import in.srain.cube.views.ptr2.PtrClassicFrameLayout;
 import in.srain.cube.views.ptr2.PtrDefaultHandler2;
 import in.srain.cube.views.ptr2.PtrFrameLayout;
@@ -28,7 +29,7 @@ import in.srain.cube.views.ptr2.PtrFrameLayout;
  * 我的群组列表界面
  * Created by huangkangfa on 2017/8/9.
  */
-public class MyGroupListActivity extends BaseActivity implements ChooseDialog.ChooseItemClickListener{
+public class MyGroupListActivity extends BaseActivity implements ChooseDialog.ChooseItemClickListener {
     @Bind(R.id.head_img_back)
     ImageView headImgBack;
     @Bind(R.id.head_txt_title)
@@ -46,11 +47,11 @@ public class MyGroupListActivity extends BaseActivity implements ChooseDialog.Ch
 
     private ChooseDialog dialog_choose;
 
-    private String[] data_choose1=new String[]{
-            "导入模板","手动模式","设备锁","详情"
+    private String[] data_choose1 = new String[]{
+            "导入模板", "手动模式", "设备锁", "详情"
     };
-    private String[] data_choose2=new String[]{
-            "导入模板","手动模式","设备锁","工程锁","详情"
+    private String[] data_choose2 = new String[]{
+            "导入模板", "手动模式", "设备锁", "工程锁", "详情"
     };
 
     @Override
@@ -64,7 +65,13 @@ public class MyGroupListActivity extends BaseActivity implements ChooseDialog.Ch
     private void init() {
         //顶部栏标题设置
         headTxtTitle.setText(getIntent().getStringExtra(GotoActivityManager.HEAD_TITLE));
+        initData();
+        initRefresh();
+        initDialog();
+    }
 
+    //初始化数据
+    private void initData() {
         final List<String> data2 = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
             data2.add("测试数据" + i);
@@ -82,7 +89,17 @@ public class MyGroupListActivity extends BaseActivity implements ChooseDialog.Ch
                 return true;
             }
         });
+    }
 
+    //初始化弹框
+    private void initDialog() {
+        dialog_choose = new ChooseDialog(mActivity);
+        dialog_choose.refreshView(data_choose1);
+        dialog_choose.setChooseItemClickListener(this);
+    }
+
+    //初始化下拉刷新
+    private void initRefresh() {
         pullToRefreshLayout.setMode(PtrFrameLayout.Mode.BOTH);
         pullToRefreshLayout.disableWhenHorizontalMove(true);
         pullToRefreshLayout.setLastUpdateTimeRelateObject(this);
@@ -116,10 +133,6 @@ public class MyGroupListActivity extends BaseActivity implements ChooseDialog.Ch
                 return super.checkCanDoRefresh(frame, gv, header);
             }
         });
-
-        dialog_choose=new ChooseDialog(mActivity);
-        dialog_choose.refreshView(data_choose1);
-        dialog_choose.setChooseItemClickListener(this);
     }
 
     @Override
@@ -130,13 +143,13 @@ public class MyGroupListActivity extends BaseActivity implements ChooseDialog.Ch
 
     @Override
     public void click(String type, String content, int index) {
-        switch (content){
+        switch (content) {
             case "导入模板":
-                GotoActivityManager.goFormworkActivity1(mActivity,"群组");
+                GotoActivityManager.goFormworkActivity1(mActivity, "群组");
                 break;
 
             case "手动模式":
-                GotoActivityManager.goManualModeActivity(mActivity,"群组");
+                GotoActivityManager.goManualModeActivity(mActivity, "群组");
                 break;
 
             case "设备锁":
@@ -146,10 +159,21 @@ public class MyGroupListActivity extends BaseActivity implements ChooseDialog.Ch
                 break;
 
             case "详情":
-                GotoActivityManager.goSceneDetailActivity(mActivity,"群组");
+                GotoActivityManager.goSceneDetailActivity(mActivity, "群组");
                 break;
 
             case "删除":
+                break;
+        }
+    }
+
+    @OnClick({R.id.head_img_back, R.id.head_txt_others})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.head_img_back:
+                finish();
+                break;
+            case R.id.head_txt_others:
                 break;
         }
     }

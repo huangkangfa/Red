@@ -18,6 +18,7 @@ import app.temp.red.red.ui.GotoActivityManager;
 import app.temp.red.red.ui.adapter.HorizontalAdapter;
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * 列表展示界面
@@ -52,11 +53,11 @@ public class ShowListActivity extends BaseActivity {
         headTxtOthers.setVisibility(View.VISIBLE);
         headTxtOthers.setText("确定");
 
-        data=new ArrayList<>();
-        for(int i=0;i<9;i++){
-            data.add("测试"+i+"号");
+        data = new ArrayList<>();
+        for (int i = 0; i < 9; i++) {
+            data.add("测试" + i + "号");
         }
-        adapter=new HorizontalAdapter(mActivity,data);
+        adapter = new HorizontalAdapter(mActivity, data);
         lv.setAdapter(adapter);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -72,4 +73,14 @@ public class ShowListActivity extends BaseActivity {
         ButterKnife.unbind(this);
     }
 
+    @OnClick({R.id.head_img_back, R.id.head_txt_others})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.head_img_back:
+                finish();
+                break;
+            case R.id.head_txt_others:
+                break;
+        }
+    }
 }

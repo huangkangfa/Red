@@ -9,7 +9,6 @@ import app.temp.red.red.R;
 import app.temp.red.red.ui.activity.HomeActivity;
 import app.temp.red.red.ui.activity.IntroActivity;
 import app.temp.red.red.ui.activity.WelcomeActivity;
-import app.temp.red.red.ui.activity.others.ShowListActivity;
 import app.temp.red.red.ui.activity.formworks.FormworkTypeActivity;
 import app.temp.red.red.ui.activity.formworks.TempTackActivity;
 import app.temp.red.red.ui.activity.formworks.WeekProgramActivity;
@@ -18,14 +17,22 @@ import app.temp.red.red.ui.activity.groups.MyGroupDetailActivity;
 import app.temp.red.red.ui.activity.groups.MyGroupListActivity;
 import app.temp.red.red.ui.activity.login.LoginActivity;
 import app.temp.red.red.ui.activity.login.RegisterActivity;
+import app.temp.red.red.ui.activity.login.ResetPassword2Activity;
+import app.temp.red.red.ui.activity.login.ResetPasswordActivity;
+import app.temp.red.red.ui.activity.login.SetNameActivity;
+import app.temp.red.red.ui.activity.me.AboutActivity;
 import app.temp.red.red.ui.activity.me.FeedbackActivity;
 import app.temp.red.red.ui.activity.me.HelpActivity;
 import app.temp.red.red.ui.activity.me.MyCenterActivity;
-import app.temp.red.red.ui.activity.me.ResetPasswordActivity;
+import app.temp.red.red.ui.activity.me.RevisePasswordActivity;
 import app.temp.red.red.ui.activity.me.SeasonSetActivity;
-import app.temp.red.red.ui.activity.others.ManualModeActivity;
-import app.temp.red.red.ui.activity.others.TransitActivity;
+import app.temp.red.red.ui.activity.me.authorize.Authorize1Activity;
+import app.temp.red.red.ui.activity.me.authorize.Authorize2Activity;
+import app.temp.red.red.ui.activity.me.authorize.Authorize3Activity;
 import app.temp.red.red.ui.activity.others.DetailActivity;
+import app.temp.red.red.ui.activity.others.ManualModeActivity;
+import app.temp.red.red.ui.activity.others.ShowListActivity;
+import app.temp.red.red.ui.activity.others.TransitActivity;
 
 /**
  * Created by huangkangfa on 2017/8/9.
@@ -64,6 +71,37 @@ public class GotoActivityManager {
         activity.startActivity(it);
         ((BaseActivity) activity).overridePendingTransition(R.anim.start_to_activity, R.anim.finish_to_activity);
     }
+
+    //跳转至重置密码页2
+    public static void goResetPassword2Activity(BaseActivity activity){
+        Intent it=new Intent(activity, ResetPassword2Activity.class);
+        it.putExtra(HEAD_TITLE,"重置密码");
+        activity.startActivity(it);
+        ((BaseActivity) activity).overridePendingTransition(R.anim.start_to_activity, R.anim.finish_to_activity);
+    }
+    //跳转至重命名界面
+    public static void goSetNameActivity(BaseActivity activity,String name){
+        Intent it=new Intent(activity, SetNameActivity.class);
+        it.putExtra(HEAD_TITLE,"更改昵称");
+        it.putExtra("name",name);
+        activity.startActivityForResult(it,0);
+        ((BaseActivity) activity).overridePendingTransition(R.anim.start_to_activity, R.anim.finish_to_activity);
+    }
+    //跳转至修改密码界面
+    public static void goRevisePasswordActivity(BaseActivity activity){
+        Intent it=new Intent(activity, RevisePasswordActivity.class);
+        it.putExtra(HEAD_TITLE,"修改密码");
+        activity.startActivity(it);
+        ((BaseActivity) activity).overridePendingTransition(R.anim.start_to_activity, R.anim.finish_to_activity);
+    }
+    //跳转至关于界面
+    public static void goAboutActivity(BaseActivity activity){
+        Intent it=new Intent(activity, AboutActivity.class);
+        it.putExtra(HEAD_TITLE,"关于");
+        activity.startActivity(it);
+        ((BaseActivity) activity).overridePendingTransition(R.anim.start_to_activity, R.anim.finish_to_activity);
+    }
+
     //跳转至没群组过渡页
     public static void goTransitActivity(BaseActivity activity){
         Intent it=new Intent(activity, TransitActivity.class);
@@ -98,8 +136,29 @@ public class GotoActivityManager {
     //跳转至导入模板1界面
     public static void goFormworkActivity1(BaseActivity activity,String type){
         Intent it=new Intent(activity, FormworkTypeActivity.class);
-        it.putExtra(HEAD_TITLE,"模板导入设置");
+        it.putExtra(HEAD_TITLE,"模板");
         it.putExtra(TYPE,type);
+        activity.startActivity(it);
+        ((BaseActivity) activity).overridePendingTransition(R.anim.start_to_activity, R.anim.finish_to_activity);
+    }
+    //跳转至授权中心1界面
+    public static void goAuthorize1Activity(BaseActivity activity){
+        Intent it=new Intent(activity, Authorize1Activity.class);
+        it.putExtra(HEAD_TITLE,"授权中心");
+        activity.startActivity(it);
+        ((BaseActivity) activity).overridePendingTransition(R.anim.start_to_activity, R.anim.finish_to_activity);
+    }
+    //跳转至授权中心2界面
+    public static void goAuthorize2Activity(BaseActivity activity){
+        Intent it=new Intent(activity, Authorize2Activity.class);
+        it.putExtra(HEAD_TITLE,"授权中心");
+        activity.startActivity(it);
+        ((BaseActivity) activity).overridePendingTransition(R.anim.start_to_activity, R.anim.finish_to_activity);
+    }
+    //跳转至授权中心3界面
+    public static void goAuthorize3Activity(BaseActivity activity){
+        Intent it=new Intent(activity, Authorize3Activity.class);
+        it.putExtra(HEAD_TITLE,"授权中心");
         activity.startActivity(it);
         ((BaseActivity) activity).overridePendingTransition(R.anim.start_to_activity, R.anim.finish_to_activity);
     }
@@ -128,7 +187,7 @@ public class GotoActivityManager {
     //跳转至个人中心
     public static void goMyCenterActivity(BaseActivity activity){
         Intent it=new Intent(activity, MyCenterActivity.class);
-        it.putExtra(HEAD_TITLE,"个人中心");
+        it.putExtra(HEAD_TITLE,"个人信息");
         activity.startActivity(it);
         ((BaseActivity) activity).overridePendingTransition(R.anim.start_to_activity, R.anim.finish_to_activity);
     }

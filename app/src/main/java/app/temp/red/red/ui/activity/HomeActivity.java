@@ -63,7 +63,7 @@ public class HomeActivity extends BaseFragmentActivity implements ChooseDialog.C
     public static final String ACTION_NAME = "HomeActivity";
 
     private List<BaseFragment> fragemts=new ArrayList<>();
-    private int position=0;  //当前碎片编号
+    private static int POSITION=0;  //当前碎片编号
     private ChooseDialog dialog_choose;
 
     private String[] data_choose1=new String[]{
@@ -71,6 +71,9 @@ public class HomeActivity extends BaseFragmentActivity implements ChooseDialog.C
     };
     private String[] data_choose2=new String[]{
             "导入模板","手动模式","设备锁","工程锁","详情"
+    };
+    private String[] data_choose3=new String[]{
+            "详情"
     };
 
     @Override
@@ -147,8 +150,8 @@ public class HomeActivity extends BaseFragmentActivity implements ChooseDialog.C
     }
 
     private void changeBottomBtnStyle(int position){
-        this.position=position;
-        switch (position) {
+        POSITION=position;
+        switch (POSITION) {
             case 0:
                 bottomBarTxt1.setTextColor(Color.parseColor("#000000"));
                 bottomBarTxt2.setTextColor(Color.parseColor("#666666"));
@@ -177,8 +180,12 @@ public class HomeActivity extends BaseFragmentActivity implements ChooseDialog.C
             if (action.equals(ACTION_NAME)) {
                 switch (intent.getStringExtra("类型")){
                     case "选择弹框":
-                        if(TempData.hasProjectLock){
-                            dialog_choose.refreshView(data_choose2);
+                        if(POSITION==1){
+                            dialog_choose.refreshView(data_choose3);
+                        }else{
+                            if(TempData.hasProjectLock){
+                                dialog_choose.refreshView(data_choose2);
+                            }
                         }
                         dialog_choose.show();
                         break;
@@ -207,47 +214,21 @@ public class HomeActivity extends BaseFragmentActivity implements ChooseDialog.C
     public void click(String type, String content, int index) {
         switch (content){
             case "导入模板":
-                switch (position){
-                    case 0:
-                        GotoActivityManager.goFormworkActivity1(mActivity,"场景");
-                        break;
-                    case 1:
-                        GotoActivityManager.goFormworkActivity1(mActivity,"网关");
-                        break;
-                }
+                GotoActivityManager.goFormworkActivity1(mActivity,"场景");
                 break;
 
             case "手动模式":
-                switch (position){
-                    case 0:
-                        GotoActivityManager.goManualModeActivity(mActivity,"场景");
-                        break;
-                    case 1:
-                        GotoActivityManager.goManualModeActivity(mActivity,"网关");
-                        break;
-                }
+                GotoActivityManager.goManualModeActivity(mActivity,"场景");
             break;
 
             case "设备锁":
-                switch (position){
-                    case 0:
-                        break;
-                    case 1:
-                        break;
-                }
             break;
 
             case "工程锁":
-                switch (position){
-                    case 0:
-                        break;
-                    case 1:
-                        break;
-                }
             break;
 
             case "详情":
-                switch (position){
+                switch (POSITION){
                     case 0:
                         GotoActivityManager.goSceneDetailActivity(mActivity,"场景");
                         break;
@@ -258,7 +239,7 @@ public class HomeActivity extends BaseFragmentActivity implements ChooseDialog.C
             break;
 
             case "删除":
-                switch (position){
+                switch (POSITION){
                     case 0:
                         break;
                     case 1:

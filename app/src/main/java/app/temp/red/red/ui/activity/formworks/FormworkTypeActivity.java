@@ -50,9 +50,12 @@ public class FormworkTypeActivity extends BaseActivity {
         ButterKnife.unbind(this);
     }
 
-    @OnClick({R.id.ll1, R.id.ll2})
+    @OnClick({R.id.head_img_back,R.id.ll1, R.id.ll2})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+            case R.id.head_img_back:
+                finish();
+                break;
             case R.id.ll1:
                 //跳转至周编程模板导入界面
                 GotoActivityManager.goShowListActivity(mActivity,"周编程模板");

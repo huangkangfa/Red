@@ -2,6 +2,7 @@ package app.temp.red.red.ui.activity.me;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,9 +12,10 @@ import app.temp.red.red.R;
 import app.temp.red.red.ui.GotoActivityManager;
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
- * 帮助界面
+ * 关于界面
  * Created by huangkangfa on 2017/8/9.
  */
 public class AboutActivity extends BaseActivity {
@@ -21,25 +23,23 @@ public class AboutActivity extends BaseActivity {
     ImageView headImgBack;
     @Bind(R.id.head_txt_title)
     TextView headTxtTitle;
-    @Bind(R.id.head_txt_others)
-    TextView headTxtOthers;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         ButterKnife.bind(this);
-        init();
-    }
-
-    private void init() {
+        headImgBack.setVisibility(View.VISIBLE);
         //顶部栏标题设置
         headTxtTitle.setText(getIntent().getStringExtra(GotoActivityManager.HEAD_TITLE));
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        ButterKnife.unbind(this);
+    @OnClick(R.id.head_img_back)
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.head_img_back:
+               finish();
+                break;
+        }
     }
 }

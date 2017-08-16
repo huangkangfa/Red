@@ -16,6 +16,7 @@ import app.temp.red.red.ui.GotoActivityManager;
 import app.temp.red.red.ui.view.CircleStage;
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * 手动模式详情界面   群组、场景、网关、设备手动模式详情复用
@@ -63,5 +64,16 @@ public class ManualModeActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         ButterKnife.unbind(this);
+    }
+
+    @OnClick({R.id.head_img_back, R.id.head_txt_others})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.head_img_back:
+                finish();
+                break;
+            case R.id.head_txt_others:
+                break;
+        }
     }
 }
